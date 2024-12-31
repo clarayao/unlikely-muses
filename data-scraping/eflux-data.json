@@ -1,0 +1,196 @@
+{
+  "concepts": [
+    {
+      "id": "C001",
+      "summary": "Digital Art Discourse",
+      "description": "Movement of art dialogue away from traditional media into new digital and virtual territories"
+    },
+    {
+      "id": "C002",
+      "summary": "Communication Breakdown",
+      "description": "The failure of traditional art vocabulary to express contemporary realities"
+    },
+    {
+      "id": "C003",
+      "summary": "Institutional Critique",
+      "description": "Analysis of how art institutions balance accessibility with autonomy"
+    },
+    {
+      "id": "C004",
+      "summary": "Market Force Impact",
+      "description": "How economic systems affect artistic production and cultural dialogue"
+    },
+    {
+      "id": "C005",
+      "summary": "Reality vs Re-enactment",
+      "description": "The tension between authentic traumatic experiences and their artistic reconstruction through performance and staging"
+    },
+    {
+      "id": "C006",
+      "summary": "Documentary Fiction",
+      "description": "Blurring lines between real events and their dramatized retelling through parallel narratives and multiple perspectives"
+    },
+    {
+      "id": "C007",
+      "summary": "Performance Identity",
+      "description": "The complex relationship between actors' personal histories and the roles they are asked to perform"
+    },
+    {
+      "id": "C008",
+      "summary": "Directorial Authority",
+      "description": "The power dynamics between director and actors in representing traumatic historical events"
+    },
+    {
+      "id": "C009",
+      "summary": "Soft Power Politics",
+      "description": "Contemporary power operating through attraction and seduction rather than coercion, using cultural diplomacy and branding to influence behavior"
+    },
+    {
+      "id": "C010",
+      "summary": "Network Standards",
+      "description": "Power dynamics created through establishment of dominant protocols that create structural pressure to conform without direct force"
+    },
+    {
+      "id": "C011",
+      "summary": "State Identity Construction",
+      "description": "Nations actively crafting and managing their identities through branding to compete for influence in global arena"
+    },
+    {
+      "id": "C012",
+      "summary": "Pragmatic Conceptualism",
+      "description": "Artists adopting conceptual strategies based on practical needs rather than theoretical frameworks, particularly in Chinese context"
+    },
+    {
+      "id": "C013",
+      "summary": "Institutional Decentralization",
+      "description": "Need to move major art institutions beyond traditional centers to engage with truly global art discourse"
+    },
+    {
+      "id": "C014",
+      "summary": "Cultural Translation",
+      "description": "Process of adapting and reinterpreting artistic approaches across different cultural contexts and traditions"
+    },
+    {
+      "id": "C015",
+      "summary": "Academic Authority in Art",
+      "description": "The evolving relationship between art institutions and academic structures, focusing on how art education navigates between creative autonomy and institutional requirements"
+    },
+    {
+      "id": "C016",
+      "summary": "Artistic Authority",
+      "description": "The complex dynamics of power and authority in artistic practice, particularly how artists both challenge and embody different forms of cultural authority"
+    },
+    {
+      "id": "C017",
+      "summary": "Art World Social Dynamics",
+      "description": "The intricate social and professional networks that govern contemporary art, including hierarchies, behaviors, and unspoken rules"
+    },
+    {
+      "id": "C018",
+      "summary": "Digital Religious Experience",
+      "description": "The transformation of religious practice and authority through digital technology, exploring parallels between religious ritual and digital reproduction"
+    },
+    {
+      "id": "C019",
+      "summary": "Conceptual Art Translation",
+      "description": "How conceptual art strategies are adopted and transformed across different cultural contexts, particularly in non-Western art scenes"
+    }
+  ],
+  "visuals": [
+    {
+      "id": "V001",
+      "summary": "Institutional Walls",
+      "description": "Physical barriers and architectural elements that both protect and isolate art spaces"
+    },
+    {
+      "id": "V002",
+      "summary": "Open Doors",
+      "description": "Architectural elements symbolizing selective permeability between institution and public"
+    },
+    {
+      "id": "V003",
+      "summary": "Fragmented Text",
+      "description": "Broken, stammering written forms representing the breakdown of formal communication"
+    },
+    {
+      "id": "V004",
+      "summary": "Community Spaces",
+      "description": "Physical gathering areas within institutions that enable temporary autonomous zones"
+    },
+    {
+      "id": "V005",
+      "summary": "Bombed Shop Interior",
+      "description": "Destroyed falafel shop with shattered glass, smoke, and debris showing aftermath of explosion"
+    },
+    {
+      "id": "V006",
+      "summary": "Film Set Construction",
+      "description": "Artificial recreation of a destroyed space with props, prosthetics and special effects"
+    },
+    {
+      "id": "V007",
+      "summary": "Dual Camera Setup",
+      "description": "Two cameras filming simultaneously to capture different perspectives of the same scene"
+    },
+    {
+      "id": "V008",
+      "summary": "Catering Area",
+      "description": "Behind-the-scenes space where actors interact informally between takes, revealing the machinery of filmmaking"
+    },
+    {
+      "id": "V009",
+      "summary": "National Branding Elements",
+      "description": "Visual systems including flags, logos, domain names and promotional imagery used to create national identity"
+    },
+    {
+      "id": "V010",
+      "summary": "Network Visualization",
+      "description": "Abstract representation of interconnected nodes showing how standards and influence spread through networks"
+    },
+    {
+      "id": "V011",
+      "summary": "State Promotional Imagery",
+      "description": "Carefully curated photographs and designs presenting idealized views of nations to international audiences"
+    },
+    {
+      "id": "V012",
+      "summary": "Urban Documentation",
+      "description": "Photography and video capturing city spaces and interventions that demonstrate conceptual thinking without Western art traditions"
+    },
+    {
+      "id": "V013",
+      "summary": "Mobile Exhibition Design",
+      "description": "Temporary and adaptable display systems enabling major art shows to travel while maintaining institutional presence"
+    },
+    {
+      "id": "V014",
+      "summary": "Cultural Hybrid Forms",
+      "description": "Artworks that visually blend different cultural traditions and approaches in novel combinations"
+    },
+    {
+      "id": "V015",
+      "summary": "Institutional Spaces",
+      "description": "The physical and conceptual spaces where art education and presentation occur, from traditional academies to experimental venues"
+    },
+    {
+      "id": "V016",
+      "summary": "Performance Documentation",
+      "description": "Visual records of artistic performances and interventions that challenge or reinforce institutional authority"
+    },
+    {
+      "id": "V017",
+      "summary": "Social Rituals",
+      "description": "The visual manifestations of art world social dynamics through exhibitions, openings, and professional gatherings"
+    },
+    {
+      "id": "V018",
+      "summary": "Digital Reproduction",
+      "description": "The visual aspects of digital replication and distribution in contemporary cultural practice"
+    },
+    {
+      "id": "V019",
+      "summary": "Cultural Translation",
+      "description": "Visual evidence of how artistic concepts are transformed when moving between different cultural contexts"
+    }
+  ]
+}
