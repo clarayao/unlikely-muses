@@ -4,11 +4,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Unlikely Muses</title>
+
+    <!-- setup Firebase -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <!-- import boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="home-page/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+    <!-- import the supplementary libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/16/Stats.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+
+    <!-- import the p5.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+
+    <!-- import the umap library -->
+    <script src="home-page/js/setup/umap-js.js"></script>
+
+    <!-- import the three.js library -->
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.156.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.156.1/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        window.THREE = THREE;
+        // ORBITCONTROL
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        window.OrbitControls = OrbitControls;
+        // CSS2DRENDERER
+        import {
+            CSS2DRenderer,
+            CSS2DObject,
+        } from 'three/addons/renderers/CSS2DRenderer.js';
+        window.CSS2DRenderer = CSS2DRenderer;
+        window.CSS2DObject = CSS2DObject;
+    </script>
+
+    <!-- import your script here! -->
+    <script defer src="home-page/js/setup/script-three.js"></script>
+    <script defer src="home-page/js/setup/script-p5.js"></script>
+    <script defer src="home-page/js/main.js"></script>
 </head>
 
 <body>
-    <h1>Unlikely Muses</h1>
+    <div id="viz-container">
+        <div id="container-three"></div>
+        <div id="container-p5"></div>
+    </div>
+
+    <div id="elements-container">
+        <div id="left-panel-container">
+            <div id="monitor-action-container">
+                <h2 id="monitor-action-title" class="panel-title">Monitor Action</h2>
+
+                <div id="selections-container">
+                    <p class="type-texts">My selection:</p>
+                    <div class="selection-result" id="user-selection" style="overflow-y: auto">
+                        -- Please select a data from the graph --
+                    </div>
+
+                    <!-- <p class="selection-result" id="user-selection">A bag of snack chips</p> -->
+
+                    <p class="type-texts">Machine's selection:</p>
+                    <p class="selection-result" id="machine-selection">-- Please select a data from the graph --</p>
+                </div>
+
+                <div id="ai-model-container">
+                    <p class="type-texts">AI Model</p>
+                    <select id="model-select">
+                        <option>GPT 3.5-turbo</option>
+                    </select>
+                </div>
+
+                <div id="prompt-container">
+                    <p class="type-texts">Prompt</p>
+                    <textarea
+                        id="prompt-content">I'm making an art project based on [my selection] and [machine's selection]. Could you please help me brainstorm a workable project idea? Please be specific about any details of the project and use description language.</textarea>
+                </div>
+
+                <button id="generate-btn">
+                    Generate
+                </button>
+            </div>
+
+            <div id="data-container">
+                <h2 id="data-title" class="panel-title">Data</h2>
+
+                <div id="current-data-container">
+                    <p class="type-texts">Current Data</p>
+                    <select id="data-select">
+                        <option>E-Flux's Journal Articles</option>
+                    </select>
+
+                    <div id="data-buttons-container">
+                        <button id="load-btn" class="data-btn">
+                            Load
+                        </button>
+                        <button id="publish-btn" class="data-btn">
+                            Publish
+                        </button>
+                        <button id="view-raw-btn" class="data-btn">
+                            View Raw
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="distant-data-container">
+                        <span class="type-texts">Distant Data</span>
+                        <!-- <div id="distance-range">
+                            <span id="range-notation">Furthest</span>
+                            <input type="range" min="0" max="100" value="100" class="slider" id="data-distance-range">
+                        </div> -->
+                    </div>
+                    <div id="data-distance-container">
+                        <!-- Distant data items will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="nav-btns-container">
+            <nav id="nav-bar">
+                <button id="home-btn" class="nav-btn-icon" onclick="zoomHome()">
+                    <i class='bx bx-home'></i>
+                </button>
+                <button id="about-btn" class="nav-btn-txt" onclick="clickAbout()">About</button>
+                <button id="history-btn" class="nav-btn-txt" onclick="clickHistory()">History</button>
+                <button id="manual-btn" class="nav-btn-icon" onclick="clickManual()">
+                    <i class='bx bx-question-mark'></i>
+                </button>
+            </nav>
+
+            <button id="fullscreen-btn-container" class="nav-btn-icon">
+                <i class='bx bx-fullscreen' id="fullscreen-btn"></i>
+                <i class='bx bx-exit-fullscreen' id="exit-fullscreen" style="display: none;"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="about-container" class="pop-up-window">
+        <div id="about-window" class="pop-up-block">
+            <i class='bx bx-x' onclick="clickeClose()"></i>
+            <h2>About</h2>
+            <p>This project challenges fundamental assumptions about AI creativity by exploring how meaningful
+                innovation might emerge from seemingly-unrelated conceptual combinations. While contemporary language
+                models generate outputs based on statistical probability, this work investigates the creative potential
+                that lies in the semantic distances between ideas.
+
+                <br> <br> Inspired by Margaret Boden's theory of combinational creativity, the project manifests as an
+                interactive web installation where visitors navigate a three-dimensional latent space of artistic
+                concepts. By utilizing the vast knowledge embedded within large language models while deliberately
+                pairing semantically distant ideas, the system generates unexpected artwork descriptions that transcend
+                conventional approaches to AI creativity.
+
+                <br> <br> Through this fusion of structured exploration and deep neural knowledge, the project questions
+                whether artificial intelligence can be guided toward the kind of surprising associations and conceptual
+                leaps that characterize human creative breakthroughs, rather than remaining bound by predictable
+                patterns.
+            </p>
+        </div>
+    </div>
+
+    <div id="history-container" class="pop-up-window">
+        <div id="history-window" class="pop-up-block">
+            <i class='bx bx-x' onclick="clickeClose()"></i>
+            <h2>History</h2>
+            <div id="categories">
+                <p id="time-history">Time</p>
+                <p id="user-selection-history">My Selection</p>
+                <p id="machine-selection-history">Machine's Selection</p>
+                <i class='bx bxs-bookmark' id="bookmark-history"></i>
+                <p id="generation-history">Generation</p>
+            </div>
+            <div id="output-history">
+            </div>
+        </div>
+    </div>
+    <div id="manual-container" class="pop-up-window">
+        <div id="manual-block">
+            <i class='bx bx-x' onclick="clickeClose()"></i>
+            <p><span>Rotate</span> - Left Click + Drag <br>
+                <span>Pan</span> - Right Click + Drag <br>
+                <span>Zoom</span> - Mouse Wheel
+            </p>
+            <p><span>Select</span> - Left Click a dot</p>
+        </div>
+    </div>
+    <div id="loading-container" class="pop-up-window">
+        <div id="loading-block" class="pop-up-block">
+            <!-- <i class="bx bx-loader-alt"></i> -->
+            <div id="loader"></div>
+            <h2>Generating...</h2>
+        </div>
+    </div>
+
+    <script defer src="home-page/js/setup/openai.js"></script>
+    <script defer src="home-page/js/setup/firebase.js"></script>
+    <script defer src="home-page/js/interaction.js"></script>
 </body>
 
 </html>
